@@ -27,7 +27,7 @@ module.exports = () => {
       }),
       new MiniCssExtractPlugin(),
       new InjectManifest({
-        swSrc: './sw.js',
+        swSrc: './src/src-sw.js',
         swDest: 'service-worker.js'
       }),
       new WebpackPwaManifest({
