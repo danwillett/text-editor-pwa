@@ -17,7 +17,7 @@ module.exports = () => {
       install: "./src/js/install.js",
     },
     output: {
-      filename: "[name].bundle.js",
+      filename: "JATE.bundle.js",
       path: path.resolve(__dirname, "dist"),
     },
     plugins: [
@@ -29,7 +29,27 @@ module.exports = () => {
       new InjectManifest({
         swSrc: './src/sw.js',
         swDest: 'service-worker.js'
-      })
+      }),
+      new WebpackPwaManifest({
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'Take and save notes',
+        background_color: '#fffff',
+        crossorigin: 'use-credentials',
+        orientation: "portrait",
+        display: "standalone",
+        start_url: "./",
+        background_color: "#7eb4e2",
+        theme_color: "#7eb4e2",
+        publicPath: './', // tells where to put the manifest
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons')
+          }
+        ]
+      }),
     ],
 
     module: {
