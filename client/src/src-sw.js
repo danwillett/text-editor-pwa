@@ -35,6 +35,8 @@ const matchCallback = ({ request }) => {
     request.destination === 'style' ||
     // JavaScript
     request.destination === 'script'
+
+    // request.destination === ''
   );
 };
 registerRoute(
