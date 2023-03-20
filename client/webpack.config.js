@@ -48,7 +48,8 @@ module.exports = () => {
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons')
           }
-        ]
+        ],
+        fingerprints: false
       }),
     ],
 
@@ -67,6 +68,10 @@ module.exports = () => {
               presets: ["@babel/preset-env"],
             },
           },
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
         },
       ],
     },
