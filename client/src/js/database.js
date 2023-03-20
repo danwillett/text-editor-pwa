@@ -18,9 +18,10 @@ export const putDb = async (content) => {
     console.log("post to database");
     const jateDb = await openDB("jate", 1);
     const tx = jateDb.transaction("jate", "readwrite"); // can add new data 
-
     const store = tx.objectStore("jate");
-    const request = store.add({ jate: content });
+
+    console.log(content)
+    const request = store.put({ jate: content });
     const result = await request; // we make this asynchronous so the user still has full functionality while things are getting posted to the DB
     console.log("🚀 - data saved to the database", result);
     return result
